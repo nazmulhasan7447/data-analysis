@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&family=Poppins:wght@300&family=Roboto:wght@300;400&display=swap');
+
+@media only screen and (max-width: 992px) {
+    
+}
+
+.nav-main {
+    background-color: #084571;
+}
+
+nav .navigationBarLinks {
+    width: auto !important;
+}
+
+
+nav .navigationBarLinks ul li{
+    list-style-type: none;
+    display: inline !important;
+    float: left !important;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+nav .navigationBarLinks ul li a {
+    text-decoration: none;
+    float: left;
+    display: inline;
+    color: white !important;
+    font-family: 'Roboto', sans-serif;
+}
+
+nav .navigationBarLinks ul .nav-sign-in .icon {
+    color: white !important;
+}
+
+nav .navigationBarLinks ul .nav-sign-in .text {
+    margin-left: 5px;
+    color: white !important;
+}

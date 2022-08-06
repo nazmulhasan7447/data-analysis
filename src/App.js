@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import NavigationBar from "./compenents/nav-bar";
+import Footer from "./compenents/footer";
+import Registration from './compenents/login-registration/Registration';
+import Login from './compenents/login-registration/Login';
+import Pricings from './compenents/pricing/Index';
+import UserProfile from './compenents/user-profile';
+import Home from './Main';
+import ContactUsModal from './compenents/contact-us/ContactUsModal';
+import {Routes, Route} from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+        <NavigationBar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/pricing-table' element={<Pricings />} />
+          <Route path='/register' element={<Registration />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/my-profile' element={<UserProfile />} />
+        </Routes>
+        <ContactUsModal />
+        <Footer />
+      </>
   );
 }
 

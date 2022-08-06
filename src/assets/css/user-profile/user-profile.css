@@ -1,0 +1,78 @@
+.breadcrumb {
+    width: 100%;
+    background-color: whitesmoke;
+    position: relative;
+    margin-top: 15px;
+    padding-left: 15px;
+}
+
+.user-profile-section {
+    background-color: rgba(128, 128, 128, 0.05);
+}
+
+.user-profile-pic {
+    width: 100%;
+    padding: 25px;
+}
+
+.user-profile-pic .profile-img {
+    width: 100%;
+}
+
+.user-profile-pic .profile-img img{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+}
+
+.user-profile-pic .profile-img h6 {
+    padding-top: 10px;
+}
+
+.user-profile-btn {
+    width: 130px;
+    margin-left: 5px;
+}
+
+.unsubscribe-btn {
+    background-color: #3D90E0 !important;
+    border: none !important;
+    outline: none !important;
+    color: white !important;
+}
+
+.upgrade-btn {
+    background-color: none !important;
+    border: 1px solid #3D90E0 !important;
+    outline: none !important;
+    color: #3D90E0 !important;
+}
+
+.user-profile-details {
+    margin-top: 40px;
+    padding: 25px;
+}
+
+.margin-bottom {
+    position: relative;
+    margin-top: 80px;
+}
+
+#change-password-btn {
+    background-color: #084571;
+    color: white;
+}
+
+#membership-status {
+    background-color: #3D90E0;
+    color: white;
+}
+.change-password-btn {
+    background-color: #3D90E0 !important;
+    border: 1px solid #3D90E0 !important;
+    border: none !important;
+    outline: none !important;
+    color: white !important;
+
+}
+

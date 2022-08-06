@@ -1,0 +1,32 @@
+/* class for item at right position */
+@import url('https://fonts.googleapis.com/css2?family=Oleo+Script&family=Poppins:wght@300&family=Roboto:wght@300;400&display=swap');
+
+
+body {
+    background-color: #F7F7F7 !important;
+    font-family: 'Roboto', sans-serif;
+    overflow-y: scroll;
+    margin:0;
+    padding:0;
+    height:100%;
+}
+.parent-elementOf-item-right {
+    position: relative;
+}
+.item-right-10 {
+    position: absolute;
+    right: 0;
+}
+
+.submit-button {
+    width: 100%;
+    height: auto;
+    border: none !important;
+    outline: none !important;
+    background-color: #3D90E0 !important;
+    color: white !important;
+}
+
+.width-100 {
+    width: 100%;
+}

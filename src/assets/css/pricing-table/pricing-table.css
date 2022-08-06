@@ -1,0 +1,110 @@
+.pricing-table {
+    position: relative;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.pricing-table-root-title h2 {
+    text-transform: capitalize;
+}
+
+.pricing-table-root-title h2 b {
+    color: #3D90E0;
+}
+
+.pricing-list {
+    position: relative;
+    padding-top: 50px;
+}
+
+.pricing-card {
+    border-radius: 5px;
+}
+
+.card {
+    border-radius: 5px !important;
+    border: none !important;
+    box-shadow: 1px 1px 12px .1px gray;
+}
+
+.prcing-card-header {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: rgb(8, 69,113);
+    color: white;
+}
+
+.prcing-card-header .pricing-title {
+    padding-top: 10px;
+}
+
+.prcing-card-header .pricing-amount {
+    padding-top: 10px;
+    padding-bottom: 8px;
+    font-size: 55px !important;
+}
+
+.prcing-card-header .pricing-amount h5{
+    font-size: 35px !important;
+}
+
+.prcing-card-header .pricing-amount small {
+    font-size: 12px;
+}
+
+.divider {
+    width: 100%;
+    height: 2px;
+    background-color: rgb(255,255,255, .2);
+}
+
+.card-items .item{
+    width: 100%;
+    border-bottom: 1px solid rgba(128,128,128, 0.5) !important;
+    margin-top: 10px;
+    padding-top: 5px;
+}
+
+.card-items .item h6 span {
+    padding-left: 5px;
+}
+
+.card-items .item h6 .package-check {
+    color: green;
+}
+
+.card-items .item h6 .package-item-cross {
+    color: red;
+}
+
+.card .buy-now-btn {
+    min-width: 150px;
+    background: none;
+    border: 1px solid #3D90E0;
+    outline: none;
+    color: #3D90E0;
+    height: 35px;
+    transition: ease-out 0.3s;
+}
+
+.card .buy-now-btn:hover {
+    min-width: 150px;
+    background: #3D90E0;
+    border: none;
+    outline: none;
+    color: white;   
+}
+
+.card .active-btn {
+    min-width: 150px;
+    background: #3D90E0;
+    border: none;
+    outline: none;
+    color: white;
+    height: 35px;
+    transition: ease-out 0.3s;
+} 
+
+.active-pricing-card {
+    transform: scale(1.05);
+}

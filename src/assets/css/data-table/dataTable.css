@@ -1,0 +1,27 @@
+.export-data-section {
+    position: relative !important;
+}
+
+.export-data-section .export-btn{
+    width: 100% !important;
+    position: relative !important;
+}
+
+.export-data-section .export-btn h4 {
+    position: absolute;
+    color: rgba(61, 144, 224, 0.8);
+}
+
+.export-data-section .export-btn  button {
+    position: absolute;
+    right: 0;
+    height: auto;
+    border: none !important;
+    outline: none !important;
+    background-color: #3D90E0 !important;
+    color: white !important;
+}
+
+.table-header-bg {
+    background-color: rgba(61, 144, 224, 0.3);;
+}
