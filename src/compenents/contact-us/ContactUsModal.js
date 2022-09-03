@@ -1,7 +1,44 @@
-import React from "react";
+import React, {useState, useRef} from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import authFetch from "../../axios/Interceptors";
+import { useAuth } from "../auth/Authentication";
+import { useSnackbar } from 'notistack';
 
 const ContactUsModal = () => {
+
+  const btnClose = useRef();
+  const { enqueueSnackbar } = useSnackbar();
+  const intitialMsg = Object.freeze({email: '', text: ''});
+
+  const [msg, setMsg] = useState(intitialMsg);
+
+  const msgOnchangeHandler = (e) =>{
+    setMsg({...msg, [e.target.name]: e.target.value});
+  };
+
+  const closeContactusModal = () =>{
+    btnClose.current.click();
+  }
+
+  const msgOnClickHandler = (e) =>{
+
+    const sendMessage = async () => {
+      await authFetch
+        .post('/api/user/messages/', msg)
+        .then((response)=>{
+          closeContactusModal();
+          const msg = "Your enquiry has been sent successfully!"
+          enqueueSnackbar(msg, {variant: 'success'})
+        })
+        .catch((error)=>{
+          const msg = "Sorry! We could send your enquiry. Please try again!"
+          enqueueSnackbar(msg, {variant: 'warning'})
+        })
+    };
+
+    sendMessage();
+  }
+
   return (
     <>
       <Container>
@@ -38,6 +75,9 @@ const ContactUsModal = () => {
                           className="form-control"
                           id="recipient-name"
                           placeholder="E-mail"
+                          name="email"
+                          value={msg.email}
+                          onChange={msgOnchangeHandler}
                         />
                       </div>
                       <div className="mb-3">
@@ -48,6 +88,9 @@ const ContactUsModal = () => {
                           className="form-control"
                           id="message-text"
                           placeholder="Message"
+                          name="text"
+                          value={msg.text}
+                          onChange={msgOnchangeHandler}
                         ></textarea>
                       </div>
                     </form>
@@ -57,10 +100,11 @@ const ContactUsModal = () => {
                       type="button"
                       className="btn upgrade-btn "
                       data-bs-dismiss="modal"
+                      ref={btnClose}
                     >
                       Close
                     </button>
-                    <button type="button" className="btn unsubscribe-btn">
+                    <button type="submit" onClick={()=>msgOnClickHandler()} className="btn unsubscribe-btn">
                       Send message
                     </button>
                   </div>

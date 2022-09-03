@@ -1,6 +1,6 @@
 import React from "react";
 
-const ConfirmationModal = () => {
+const ConfirmationModal = ({unsubscribe}) => {
   return (
     <>
       <div
@@ -36,7 +36,7 @@ const ConfirmationModal = () => {
               >
                 Not Now
               </button>
-              <button type="button" class="btn change-password-btn">
+              <button type="button" onClick={()=>unsubscribe()} class="btn change-password-btn">
                 Yes, I am
               </button>
             </div>

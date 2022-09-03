@@ -5,13 +5,14 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/css/global.css';
 import { BrowserRouter } from 'react-router-dom';
+import { SnackbarProvider } from 'notistack';
+import { appContext } from './compenents/context/AppContext';
+import RootApp from './RootApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <RootApp />
   </React.StrictMode>
 );
 

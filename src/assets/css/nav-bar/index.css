@@ -37,3 +37,22 @@ nav .navigationBarLinks ul .nav-sign-in .text {
     margin-left: 5px;
     color: white !important;
 }
+
+nav .my-account-dropdown ul {
+    width: fit-content !important;
+}
+
+nav .my-account-dropdown ul {
+    background-color: #3D90E0;
+}
+
+nav .my-account-dropdown ul li:hover {
+    background-color: none !important;
+    background: none !important;
+}
+
+
+nav .my-account-dropdown ul li a:hover {
+    background-color: none !important;
+    background: none !important;
+}

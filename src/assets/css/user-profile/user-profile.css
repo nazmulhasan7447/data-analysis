@@ -19,10 +19,38 @@
     width: 100%;
 }
 
-.user-profile-pic .profile-img img{
+.user-profile-pic .profile-img .img{
+    position: relative;
     width: 120px;
     height: 120px;
+    margin: 0 auto;
     border-radius: 50%;
+}
+
+.user-profile-pic .profile-img .img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.user-profile-pic .profile-img .img .camera {
+    visibility: hidden;
+}
+
+.user-profile-pic .profile-img .img:hover .camera {
+    visibility: visible;
+    position: absolute;
+    bottom: 0;
+    background-color:  rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    padding-top: 42%;
+    z-index: 1111111;
 }
 
 .user-profile-pic .profile-img h6 {
@@ -46,6 +74,10 @@
     border: 1px solid #3D90E0 !important;
     outline: none !important;
     color: #3D90E0 !important;
+}
+
+.upgrade-btn a {
+    text-decoration: none;
 }
 
 .user-profile-details {
@@ -76,3 +108,8 @@
 
 }
 
+
+.upload-profile-pic-row {
+    position: absolute;
+    visibility: hidden;
+} 

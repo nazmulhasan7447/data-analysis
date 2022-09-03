@@ -1,0 +1,15 @@
+.ur-home-login-btn {
+    background: #3D90E0;
+    outline: none;
+    height: 35px;
+    transition: ease-out 0.3s;
+    color: white;
+    border: none;
+}
+
+.ur-home-login-btn:hover {
+    border: 1px solid #3D90E0;
+    background: none;
+    outline: none;
+    color: #3D90E0;   
+}

@@ -1,0 +1,20 @@
+.btn-small-device {
+    background: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.nav-link-small-dev ul li {
+    list-style-type: none;
+    padding-top: 10px;
+}
+
+
+.nav-link-small-dev ul li a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.nav-link-small-dev .nav-sign-in .text {
+    padding-left: 10px;
+}

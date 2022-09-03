@@ -1,0 +1,52 @@
+.success-msg {
+    width: 100%;
+    height: 100vh;
+    /* display: flex;
+    justify-content: center;
+    align-content: center; */
+    position: relative;
+}
+
+.success-msg-content {
+    min-width: 300px;
+    height: auto;
+    background-color: #F7F7F7;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 1px 1px 10px 1px gray;
+    padding: 45px;
+    /* padding-top: 15px; */
+    /* padding-top: 15px; */
+}
+
+.check-icon {
+    width: 60px;
+    height: 60px;
+    color: #81BE28;
+}
+
+.awesome {
+    font-weight: bolder;
+}
+
+.scss-title {
+    font-weight: bold;
+}
+
+.back-to-home-btn button{
+    position: relative;
+    margin-top: 40px;
+    width: auto;
+    border: none;
+    padding: 10px;
+    background-color: #3D90E0;
+    border-radius: 4px;
+    color: white;
+}
+
+.back-to-home-btn button a {
+    text-decoration: none;
+    color: white;
+}

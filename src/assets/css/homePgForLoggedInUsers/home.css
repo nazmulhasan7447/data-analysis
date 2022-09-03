@@ -1,0 +1,28 @@
+.home-page-loggedin-user {
+    position: relative;
+    padding-top: 60px;
+}
+
+.home-page-loggedin-user .card {
+    background-color: #3D90E0;
+    color: white;
+}
+
+.home-page-loggedin-user .card h5 a {
+    color: white;
+    text-decoration: none;
+}
+
+.pro-package {
+    padding-bottom: 100px;
+}
+
+.pro-package-buy-btn {
+    width: 100%;
+    background: #3D90E0;
+    outline: none;
+    transition: ease-out 0.3s;
+    color: white;
+    border: none;
+    padding: 5px;
+}

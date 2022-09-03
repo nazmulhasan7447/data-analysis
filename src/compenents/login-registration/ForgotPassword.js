@@ -5,41 +5,30 @@ import {Link, useNavigate} from 'react-router-dom';
 import { User } from "react-feather";
 import { useSnackbar } from 'notistack';
 import authFetch from "../../axios/Interceptors";
-import UserProfile from "../user-profile";
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../auth/Authentication";
 import { parseJwt } from "../parser/Parser";
 
-const Login = () => {
+const ForgotPassword = () => {
 
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
-
-  const useAuthStatus = useAuth();
+  const { enqueueSnackbar } = useSnackbar();
 
   const navigate = useNavigate();
 
-  const initialLoginCredentials = Object.freeze({username:'', password: ''});
-  const [userLoginCredentials, setUserLoginCredentials] = React.useState(initialLoginCredentials);
+  const initialLoginCredentials = Object.freeze({email_or_username:''});
+  const [userEmailOrUsername, setUserEmailOrUsername] = React.useState(initialLoginCredentials);
 
   const onChangeHandler = (e) => {
-    setUserLoginCredentials({...userLoginCredentials, [e.target.name]: e.target.value});
+    setUserEmailOrUsername({...userEmailOrUsername, [e.target.name]: e.target.value});
   }
 
-  const loginRequestHandler = (e) =>{
+  const passwordChangeRequestHandler = (e) =>{
     e.preventDefault();
     authFetch
-      .post(`/api/token/`, userLoginCredentials)
+      .post(`/api/user/forgot/password/`, userEmailOrUsername)
       .then((response) =>{
-        localStorage.setItem('access_token', response.data.access);
-        localStorage.setItem('refresh_token', response.data.refresh);
-        authFetch.defaults.headers['Authorization'] = 'JWT ' + localStorage.getItem('access_token');
-
-        useAuthStatus.loginStatusChangeHandler();
-        const currentUserAccessToken = localStorage.getItem('access_token') ? localStorage.getItem('access_token') :  '';
-        const currentUserID = parseJwt(currentUserAccessToken)?.user_id;
-
-        // navigate(`/my-profile/${currentUserID}`);
-        navigate('/');
+        const msg = response.data;
+        enqueueSnackbar(msg, {variant: 'success'})
+        navigate('/login');
       })
       .catch((error) =>{
         const msg = "Wrong credentials! Try again please!"
@@ -60,43 +49,29 @@ const Login = () => {
                    <User className="user-icon" />
                   </h4>
                 </div>
-                <h4 className="text-center">Login</h4>
-                <form className="row gy-2" onSubmit={(e) => loginRequestHandler(e)}>
+                <h4 className="text-center">Please provide your username or email to us!</h4>
+                <form className="row gy-2" onSubmit={(e) => passwordChangeRequestHandler(e)}>
                   <div className="col-md-12">
                     <label htmlFor="inputEmail4" className="form-label">
-                      Username
+                      Email or Username
                     </label>
                     <input
                       type="text"
                       className="form-control"
                       id="inputEmail4"
-                      name="username"
-                      onChange={onChangeHandler}
-                    />
-                  </div>
-
-                  <div className="col-md-12">
-                    <label htmlFor="inputPassword4" className="form-label">
-                      Password
-                    </label>
-                    <input
-                      type="password"
-                      className="form-control"
-                      id="inputPassword4"
-                      name="password"
+                      name="email_or_username"
                       onChange={onChangeHandler}
                     />
                   </div>
 
                   <div className="col-12">
                     <button type="submit" className="btn submit-button mt-3">
-                      Login
+                      Send
                     </button>
                   </div>
                 </form>
                 <p className="pt-2">
                   Don't have account?<Link to="/register"> Register</Link> here
-                  <Link to="/forgot/password"> Forgot password?</Link>
                 </p>
               </div>
             </div>
@@ -108,4 +83,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default ForgotPassword;

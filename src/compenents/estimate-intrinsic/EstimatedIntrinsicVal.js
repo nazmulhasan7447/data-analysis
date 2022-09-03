@@ -27,7 +27,7 @@ const EstimatedIntrinsicVal = () => {
 
                 <div className="symbool-input">
                   <form>
-                    <div class="mb-3">
+                    <div class="col-md-6 mb-3">
                       <label
                         for="exampleFormControlInput1"
                         class="form-label col-form-label-sm"
@@ -66,7 +66,7 @@ const EstimatedIntrinsicVal = () => {
                         class="form-control form-control-sm"
                         min={0}
                         max={50}
-                        placeholder="0-50 (%)"
+                        placeholder="0-50 %"
                         id="inputEmail4"
                       />
                     </div>
@@ -83,7 +83,7 @@ const EstimatedIntrinsicVal = () => {
                         min={0}
                         max={50}
                         id="inputPassword4"
-                        placeholder="0-50 (%)"
+                        placeholder="0-50 %"
                       />
                     </div>
 
@@ -134,7 +134,7 @@ const EstimatedIntrinsicVal = () => {
                         class="form-control form-control-sm"
                         min={0}
                         max={50}
-                        placeholder="0-50 (%)"
+                        placeholder="0-50 %"
                         id="inputPassword4"
                       />
                     </div>
@@ -184,7 +184,7 @@ const EstimatedIntrinsicVal = () => {
                             for="inputPassword4"
                             class="col-form-label col-form-label-sm"
                           >
-                            Growth Rate
+                            Growth Rate(%)
                           </label>
                           <span></span>
                           <input
@@ -227,7 +227,7 @@ const EstimatedIntrinsicVal = () => {
                             for="inputPassword4"
                             class="col-form-label col-form-label-sm"
                           >
-                            Growth Rate
+                            Growth Rate(%)
                           </label>
                           <span></span>
                           <input
@@ -270,7 +270,7 @@ const EstimatedIntrinsicVal = () => {
                             for="inputPassword4"
                             class="col-form-label col-form-label-sm"
                           >
-                            Growth Rate
+                            Growth Rate(%)
                           </label>
                           <span></span>
                           <input

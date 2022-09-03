@@ -26,7 +26,7 @@ const EstimatedAssumedPerpetualGrowthRate = () => {
 
                 <div className="symbool-input">
                   <form>
-                    <div class="mb-3">
+                    <div class="col-md-6 mb-3">
                       <label
                         for="exampleFormControlInput1"
                         class="form-label col-form-label-sm"
@@ -65,7 +65,7 @@ const EstimatedAssumedPerpetualGrowthRate = () => {
                         class="form-control form-control-sm"
                         min={0}
                         max={50}
-                        placeholder="0-50 (%)"
+                        placeholder="0-50 %"
                         id="inputEmail4"
                       />
                     </div>
@@ -82,7 +82,7 @@ const EstimatedAssumedPerpetualGrowthRate = () => {
                         min={0}
                         max={50}
                         id="inputPassword4"
-                        placeholder="0-50 (%)"
+                        placeholder="0-50 %"
                       />
                     </div>
 
@@ -133,7 +133,7 @@ const EstimatedAssumedPerpetualGrowthRate = () => {
                         class="form-control form-control-sm"
                         min={0}
                         max={50}
-                        placeholder="0-50 (%)"
+                        placeholder="0-50 %"
                         id="inputPassword4"
                       />
                     </div>

@@ -95,15 +95,27 @@
     color: white;   
 }
 
+.card .buy-now-btn:hover a {
+    color: white;
+}
+
 .card .active-btn {
     min-width: 150px;
     background: #3D90E0;
     border: none;
     outline: none;
-    color: white;
+    color: white !important;
     height: 35px;
     transition: ease-out 0.3s;
 } 
+
+.card .active-btn a {
+    color: white;
+}
+
+.card .buy-now-btn a {
+    text-decoration: none;
+}
 
 .active-pricing-card {
     transform: scale(1.05);

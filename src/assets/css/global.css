@@ -3,7 +3,8 @@
 
 
 body {
-    background-color: #F7F7F7 !important;
+    /* background-color: #F7F7F7 !important; */
+    
     font-family: 'Roboto', sans-serif;
     overflow-y: scroll;
     margin:0;
@@ -29,4 +30,10 @@ body {
 
 .width-100 {
     width: 100%;
+}
+
+.position-center {
+    position: relative;
+    top: 150px;
+    margin-bottom: 500px;
 }
