@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "../../assets/css/pricing-table/pricing-table.css";
 import * as Icon from "react-feather";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/Authentication";
 import authFetch from "../../axios/Interceptors";
 import PreLoader from "../pre-loader/PreLoader";

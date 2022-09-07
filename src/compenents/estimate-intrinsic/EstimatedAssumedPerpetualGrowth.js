@@ -1,9 +1,38 @@
-import React from "react";
+import React, {useState} from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import "../../assets/css/estimate-intrinsic-value/index.css";
 import EstimatedAssumedPerpetualGrowthDB from "../data-table/estimated-assumed-perpetual-growth-data-table";
+import authFetch from "../../axios/Interceptors";
+import { useSnackbar } from "notistack";
+
+
+
 
 const EstimatedAssumedPerpetualGrowthRate = () => {
+
+  const { enqueueSnackbar } = useSnackbar();
+
+  const initialSymbolObj = Object.freeze({epgSymbol: ''});
+  const [symbol, setSymbol] = useState(initialSymbolObj);
+
+  const onSymbolChangeHandler = (e) => {  
+    setSymbol({...initialSymbolObj, [e.target.name]: e.target.value});
+  };
+
+  const symbolSubmitHandler = async (e) => {
+    e.preventDefault();
+    await authFetch
+      .post('/api/check/symbool/', symbol)
+      .then((response)=>{
+        const msg = response?.data?.success || response?.data?.failed;
+        enqueueSnackbar(msg, { variant: `${response?.data?.success ? "success" : "warning"}` });
+      })
+      .catch(e=>{
+        const msg = "Something went wrong. Try again please!";
+        enqueueSnackbar(msg, { variant: "warning" });
+      })
+  }
+
   return (
     <React.Fragment>
       <Container>
@@ -25,7 +54,7 @@ const EstimatedAssumedPerpetualGrowthRate = () => {
                 </div> */}
 
                 <div className="symbool-input">
-                  <form>
+                  <form onSubmit={(e)=>symbolSubmitHandler(e)}>
                     <div class="col-md-6 mb-3">
                       <label
                         for="exampleFormControlInput1"
@@ -38,7 +67,10 @@ const EstimatedAssumedPerpetualGrowthRate = () => {
                         class="form-control form-control-sm"
                         id="exampleFormControlInput1"
                         placeholder="Symbol"
+                        name="epgSymbol"
+                        onChange={onSymbolChangeHandler}
                       />
+                      <p></p>
                     </div>
                     <div class="col-auto">
                       

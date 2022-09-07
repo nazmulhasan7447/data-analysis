@@ -57,7 +57,6 @@ const UserProfile = () => {
       authFetch
       .post(`/api/upload/profile/image/`, {'user': username, 'img': e.target.files[0]}, config)
       .then((response)=>{
-        console.log(response)
         const msg = "Profile pic successfully uploaded!";
         enqueueSnackbar(msg, { variant: "success" });
       })
