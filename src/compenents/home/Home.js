@@ -29,7 +29,7 @@ const HomePage = () => {
         .then((response) => {
           console.log(response)
           const freePackage = response.data.filter(
-            (item) => item.package_type === "free"
+            (item) => item.package_type === "pro_paid"
           );
           setPackageList(freePackage);
           setIsLoading(false);

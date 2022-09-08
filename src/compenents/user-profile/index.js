@@ -169,7 +169,7 @@ const UserProfile = () => {
                   {
                     userDetailsInfo.profile_pic ? (
                       <div className="img">
-                        <img src={`${BASE_URL}${userDetailsInfo.profile_pic.img}`} id="profilePic" />
+                        <img src={`${userDetailsInfo.profile_pic.img}`} id="profilePic" />
                         <div className="camera" id="camera">
                           <Camera className="camera-icon icon" />
                         </div>
