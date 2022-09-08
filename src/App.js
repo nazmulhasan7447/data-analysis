@@ -15,6 +15,7 @@ import HomePgForLoggedInUser from './compenents/home/HomePgForLoggedInUser';
 import EstimatedAssumedPerpetualGrowthRate from './compenents/estimate-intrinsic/EstimatedAssumedPerpetualGrowth';
 import EstimatedIntrinsicVal from './compenents/estimate-intrinsic/EstimatedIntrinsicVal';
 import ForgotPassword from './compenents/login-registration/ForgotPassword';
+import { BrowserRouter } from "react-router-dom";
 
 
 
@@ -23,6 +24,7 @@ function App() {
   return (
       <>
         <NavigationBar />
+        <BrowserRouter>
         <Routes>
           <Route path='/' element={<HomePage />}></Route>
           <Route path='/home' element={<RequireAuth><HomePgForLoggedInUser /></RequireAuth>}></Route>
@@ -36,6 +38,7 @@ function App() {
           <Route path='/forgot/password' element={<ForgotPassword />} />
           <Route path='/my-profile/:username' element={<RequireAuth><UserProfile /></RequireAuth>} />
         </Routes>
+        </BrowserRouter>
         <ContactUsModal />
         <Footer />
       </>
