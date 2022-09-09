@@ -4,7 +4,7 @@ import axios from 'axios';
 // axios.defaults.xsrfCookieName = "csrftoken";
 
 export const BASE_URL = 'https://orca-app-4n9ni.ondigitalocean.app'
-export const REDIRECT_URL = 'https://octopus-app-7arni.ondigitalocean.app'
+export const REDIRECT_URL = 'https://urchin-app-zje85.ondigitalocean.app'
 // export const BASE_URL = 'http://agamibangla.pythonanywhere.com'
 
 const authFetch = axios.create({
