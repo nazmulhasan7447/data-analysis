@@ -78,7 +78,7 @@ const HomePgForLoggedInUser = () => {
             </div>
           </div>
         </Col>
-        <Col md={2}></Col>
+        <Col md={2} className="mt-3"></Col>
         <Col md={3}>
           <div className="card">
             <div className="card-body">

@@ -5,7 +5,8 @@
 }
 
 .nav-main {
-    background-color: #084571;
+    /* background-color: #084571; */
+    background-color: white;
 }
 
 nav .navigationBarLinks {
@@ -25,12 +26,14 @@ nav .navigationBarLinks ul li a {
     text-decoration: none;
     float: left;
     display: inline;
-    color: white !important;
+    /* color: white !important; */
+    color: #084571!important;
     font-family: 'Roboto', sans-serif;
 }
 
 nav .navigationBarLinks ul .nav-sign-in .icon {
-    color: white !important;
+    /* color: white !important; */
+    color: #084571!important;
 }
 
 nav .navigationBarLinks ul .nav-sign-in .text {
@@ -49,6 +52,10 @@ nav .my-account-dropdown ul {
 nav .my-account-dropdown ul li:hover {
     background-color: none !important;
     background: none !important;
+}
+
+nav .my-account-dropdown ul li a {
+    color: white !important;
 }
 
 

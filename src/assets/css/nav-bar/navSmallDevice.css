@@ -1,5 +1,5 @@
 .btn-small-device {
-    background: none !important;
+    background: #084571 !important;
     border: none !important;
     outline: none !important;
 }
@@ -13,6 +13,7 @@
 .nav-link-small-dev ul li a {
     text-decoration: none;
     cursor: pointer;
+    color: black;
 }
 
 .nav-link-small-dev .nav-sign-in .text {
