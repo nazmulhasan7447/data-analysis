@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import NavigationBar from "./compenents/nav-bar";
 import Footer from "./compenents/footer";
 import Registration from './compenents/login-registration/Registration';
