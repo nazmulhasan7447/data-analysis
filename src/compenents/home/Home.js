@@ -29,7 +29,7 @@ const HomePage = () => {
         .then((response) => {
           console.log(response)
           const freePackage = response.data.filter(
-            (item) => item.package_type === "pro_paid"
+            (item) => item.package_type === "free"
           );
           setPackageList(freePackage);
           setIsLoading(false);
@@ -78,11 +78,11 @@ const HomePage = () => {
                               <p className="text-center">{pack.sub_title}</p>
                             </div>
                             <div className="divider"></div>
-                            <div className="pricing-amount">
+                            {/* <div className="pricing-amount">
                             <h5 className="text-center">
                             ${pack.price}/<small>{pack.willBeCharged}</small>
                             </h5>
-                          </div>
+                          </div> */}
                           </div>
                           <div className="card-body">
                             <div className="card-items">
