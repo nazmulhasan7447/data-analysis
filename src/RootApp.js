@@ -12,6 +12,7 @@ import { AuthProvider } from "./compenents/auth/Authentication";
 
 const RootApp = () => {
   return (
+    <BrowserRouter>
       <AuthProvider>
         <SnackbarProvider
           maxSnack={3}
@@ -21,11 +22,10 @@ const RootApp = () => {
             horizontal: "center",
           }}
         >
-          <BrowserRouter>
           <App />
-          </BrowserRouter>
         </SnackbarProvider>
       </AuthProvider>
+      </BrowserRouter>
   );
 };
 

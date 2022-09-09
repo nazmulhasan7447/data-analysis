@@ -24,7 +24,7 @@ function App() {
       <>
         <NavigationBar />
         <Routes>
-          <Route path='/' element={<HomePage />}></Route>
+          <Route path='/' element={<HomePage />}>
           <Route path='/home' element={<RequireAuth><HomePgForLoggedInUser /></RequireAuth>}></Route>
           <Route path='/estimated/intrinsica/value' element={<RequireAuth><EstimatedIntrinsicVal /></RequireAuth>}></Route>
           <Route path='/estimated/intrinsica/perpetual/growth' element={<RequireAuth><EstimatedAssumedPerpetualGrowthRate /></RequireAuth>}></Route>
@@ -35,6 +35,7 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/forgot/password' element={<ForgotPassword />} />
           <Route path='/my-profile/:username' element={<RequireAuth><UserProfile /></RequireAuth>} />
+          </Route>
         </Routes>
         <ContactUsModal />
         <Footer />
