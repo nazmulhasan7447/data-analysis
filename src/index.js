@@ -8,9 +8,7 @@ import RootApp from './RootApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <RootApp />
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

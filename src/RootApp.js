@@ -9,7 +9,7 @@ import { AuthProvider } from "./compenents/auth/Authentication";
 
 const RootApp = () => {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <AuthProvider>
         <SnackbarProvider
           maxSnack={3}
@@ -22,7 +22,7 @@ const RootApp = () => {
           <App />
         </SnackbarProvider>
       </AuthProvider>
-</HashRouter>
+</BrowserRouter>
   );
 };
 
