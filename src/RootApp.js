@@ -21,11 +21,11 @@ const RootApp = () => {
             vertical: "top",
             horizontal: "center",
           }}
-        >
+        > 
           <App />
         </SnackbarProvider>
       </AuthProvider>
-      </BrowserRouter>
+</BrowserRouter>
   );
 };
 
