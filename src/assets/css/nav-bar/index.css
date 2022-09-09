@@ -33,12 +33,13 @@ nav .navigationBarLinks ul li a {
 
 nav .navigationBarLinks ul .nav-sign-in .icon {
     /* color: white !important; */
-    color: #084571!important;
+    color: #084571 !important;
 }
 
 nav .navigationBarLinks ul .nav-sign-in .text {
     margin-left: 5px;
-    color: white !important;
+    /* color: white !important; */
+    color: #084571 !important;
 }
 
 nav .my-account-dropdown ul {
@@ -56,6 +57,7 @@ nav .my-account-dropdown ul li:hover {
 
 nav .my-account-dropdown ul li a {
     color: white !important;
+    /* color: #084571 !important; */
 }
 
 
