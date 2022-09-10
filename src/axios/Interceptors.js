@@ -15,8 +15,7 @@ const authFetch = axios.create({
     headers: {
         Authorization: localStorage.getItem('access_token') ? 'JWT ' + localStorage.getItem('access_token') : null,
         'Content-Type': 'application/json', 
-        'accept': 'application/json', 
-        'Access-Control-Allow-Origin': '*'
+        'accept': 'application/json'
     }
 });
 
