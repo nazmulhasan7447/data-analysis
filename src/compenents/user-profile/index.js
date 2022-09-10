@@ -17,7 +17,10 @@ import PreLoader from "../pre-loader/PreLoader";
 const UserProfile = () => {
 
   const { username } = useParams();
+
   const navigate = useNavigate();
+  const closeUnsubcribeConfirmationModalBtn = useRef();
+
   const [proPackage, setProPackage] = useState({});
   const [loading, setIsLoading] = useState(true);
   const useAuthStatus = useAuth();
@@ -122,11 +125,15 @@ const UserProfile = () => {
 
   }, []);
 
+  const closeUnsubscribeConfirmationModalHanler = () =>{
+    closeUnsubcribeConfirmationModalBtn.current.click();
+  }
 
   const unsubscribe = () =>{
     authFetch
       .post(`/api/unsubscribe/${username}/`, {'username': username, 'unsubscribe': true})
       .then((response)=>{
+        closeUnsubscribeConfirmationModalHanler();
         enqueueSnackbar(response.data, {variant: 'success'});
         setUserDetailsInfo({...userDetailsInfo, is_paid_member: false});
       })
@@ -337,7 +344,7 @@ const UserProfile = () => {
 
         <div className="margin-bottom"></div>
 
-        <ConfirmationModal unsubscribe={unsubscribe} />
+        <ConfirmationModal unsubscribe={{unsubscribe, closeUnsubcribeConfirmationModalBtn, closeUnsubscribeConfirmationModalHanler}} />
         <ChangePasswordModal />
       </Container>
     </>

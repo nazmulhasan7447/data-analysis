@@ -23,6 +23,8 @@ const ConfirmationModal = ({unsubscribe}) => {
                 class="btn btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
+                ref={unsubscribe.closeUnsubcribeConfirmationModalBtn}
+                onClick={()=>unsubscribe.closeUnsubscribeConfirmationModalHanler}
               ></button>
             </div>
             <div class="modal-body">
@@ -36,7 +38,9 @@ const ConfirmationModal = ({unsubscribe}) => {
               >
                 Not Now
               </button>
-              <button type="button" onClick={()=>unsubscribe()} class="btn change-password-btn">
+              <button type="button" 
+              onClick={()=>unsubscribe.unsubscribe()}
+               class="btn change-password-btn">
                 Yes, I am
               </button>
             </div>

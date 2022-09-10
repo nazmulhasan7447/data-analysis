@@ -6,6 +6,7 @@ import axios from 'axios';
 export const BASE_URL = 'https://orca-app-4n9ni.ondigitalocean.app'
 // export const BASE_URL = 'http://127.0.0.1:8000'
 export const REDIRECT_URL = 'https://urchin-app-zje85.ondigitalocean.app'
+// export const REDIRECT_URL = 'http://localhost:3000'
 // export const BASE_URL = 'http://agamibangla.pythonanywhere.com'
 
 const authFetch = axios.create({

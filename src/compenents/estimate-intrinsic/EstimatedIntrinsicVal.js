@@ -140,10 +140,13 @@ const EstimatedIntrinsicVal = () => {
                         class="form-select form-select-sm"
                       >
                         <option selected>Select Option</option>
-                        <option>Option one</option>
-                        <option>Option one</option>
-                        <option>Option one</option>
-                        <option>Option one</option>
+                        <option value="AAA">AAA || Investment</option>
+                        <option value="AA">AA+, AA, AA- || Investment</option>
+                        <option value="A">A+, A, A- || Investment</option>
+                        <option value="BBB">BBB+, BBB, BBB- || Investment</option>
+                        <option value="BB">BB+, BB || Speculative</option>
+                        <option value="B">B || Speculative</option>
+                        <option value="CCC">CCC and below || Speculative</option>
                       </select>
                     </div>
 

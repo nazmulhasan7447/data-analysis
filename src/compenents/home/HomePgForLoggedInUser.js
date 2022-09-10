@@ -7,6 +7,7 @@ import { useAuth } from "../auth/Authentication";
 import authFetch from "../../axios/Interceptors";
 import PreLoader from "../pre-loader/PreLoader";
 import { parseJwt } from "../parser/Parser";
+import SevenDayFreeTrialConfirmationModal from "./FreeTrailConfirmationModal";
 
 const HomePgForLoggedInUser = () => {
   const navigate = useNavigate();
@@ -143,9 +144,18 @@ const HomePgForLoggedInUser = () => {
                             }
                           >
                             Upgrade now
-                            <br />
+                          </button>
+                          {
+                            currentUserDetail?.is_free_trial_used || (
+                              <button 
+                            className="btn-primary mt-3 pro-package-buy-btn seven_day_free_trial_confirmationModal"
+                            data-bs-toggle="modal"
+                            data-bs-target="#seven_day_free_trial_confirmationModal"
+                          >
                             7-DAY FREE TRIAL
                           </button>
+                            )
+                          }
                         </div>
                       </div>
                     </div>
@@ -158,6 +168,7 @@ const HomePgForLoggedInUser = () => {
         )
       )
     }
+    <SevenDayFreeTrialConfirmationModal currentUserDetails={currentUserDetail} />
     </Container>
   );
 };
