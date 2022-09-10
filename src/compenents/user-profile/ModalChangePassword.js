@@ -43,6 +43,7 @@ const ChangePasswordModal = () => {
       await authFetch
         .put(`/api/user/change/password/${currentUserID}/`, initialCredentials)
         .then((res)=>{
+          console.log(res)
           closeContactusModal();
           const msg = "Password has been successfully changed!"
           enqueueSnackbar(msg, {variant: 'success'});
