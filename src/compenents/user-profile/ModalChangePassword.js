@@ -39,6 +39,7 @@ const ChangePasswordModal = () => {
     const currentUserID = parseJwt(currentUserAccessToken)?.user_id;
 
     const sendPassChangeRequest = async () =>{
+      console.log(initialCredentials);
       await authFetch
         .put(`/api/user/change/password/${currentUserID}/`, initialCredentials)
         .then((res)=>{
@@ -52,6 +53,7 @@ const ChangePasswordModal = () => {
           navigate('/', {replace: true});
         })
         .catch((error)=>{
+          console.log(error);
           try {
             if (error?.response?.data.non_field_errors[0]) {
               const msg = error?.response?.data.non_field_errors[0];
