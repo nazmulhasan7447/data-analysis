@@ -12,10 +12,7 @@ import { useAuth } from "../auth/Authentication";
 import PreLoader from "../pre-loader/PreLoader";
 // import { BASE_URL } from "../../axios/Interceptors";
 
-
-
 const UserProfile = () => {
-
   const { username } = useParams();
 
   const navigate = useNavigate();
@@ -24,7 +21,7 @@ const UserProfile = () => {
   const [proPackage, setProPackage] = useState({});
   const [loading, setIsLoading] = useState(true);
   const useAuthStatus = useAuth();
-  
+
   const { enqueueSnackbar } = useSnackbar();
 
   const [userDetailsInfo, setUserDetailsInfo] = React.useState({
@@ -32,49 +29,44 @@ const UserProfile = () => {
     lname: "",
     email: "",
     username: "",
-    is_paid_member: false
+    is_paid_member: false,
   });
 
-
-  const uploadCameraSection = document.getElementById('camera');
-  const fileInput = document.getElementById('profile_pic');
+  const uploadCameraSection = document.getElementById("camera");
+  const fileInput = document.getElementById("profile_pic");
 
   if (uploadCameraSection) {
-    uploadCameraSection.onclick = () =>{
+    uploadCameraSection.onclick = () => {
       fileInput.click();
-    }
+    };
   }
 
   const onProfilePicUpload = (e) => {
-
-    const previewer = document.getElementById('profilePic');
+    const previewer = document.getElementById("profilePic");
     const uploadedImg = URL.createObjectURL(e.target.files[0]);
 
     if (uploadedImg) {
       previewer.src = uploadedImg;
     }
 
-  
-    setTimeout(()=>{
-      const config = {headers: {'Content-Type': 'multipart/form-data'}}
+    setTimeout(() => {
+      const config = { headers: { "Content-Type": "multipart/form-data" } };
       authFetch
-      .post(`/api/upload/profile/image/`, {'user': username, 'img': e.target.files[0]}, config)
-      .then((response)=>{
-        const msg = "Profile pic successfully uploaded!";
-        enqueueSnackbar(msg, { variant: "success" });
-      })
-      .catch((error)=>{
-        const msg = "Profile pic can't be uploaded!";
-        enqueueSnackbar(msg, { variant: "warning" });
-      })
-    }, 500);  
-
-  }
-
-  // useEffect(()=>{
-    
-  // }, [profilePicInfo])
-  
+        .post(
+          `/api/upload/profile/image/`,
+          { user: username, img: e.target.files[0] },
+          config
+        )
+        .then((response) => {
+          const msg = "Profile pic successfully uploaded!";
+          enqueueSnackbar(msg, { variant: "success" });
+        })
+        .catch((error) => {
+          const msg = "Profile pic can't be uploaded!";
+          enqueueSnackbar(msg, { variant: "warning" });
+        });
+    }, 500);
+  };
 
   const currentUserAccessToken = localStorage.getItem("access_token")
     ? localStorage.getItem("access_token")
@@ -106,7 +98,7 @@ const UserProfile = () => {
         });
     }
 
-    const fetchCurrentProPackge = async () =>{
+    const fetchCurrentProPackge = async () => {
       await authFetch
         .get("/api/package-list/")
         .then((response) => {
@@ -119,26 +111,27 @@ const UserProfile = () => {
         .catch((error) => {
           console.log(error);
         });
-    }
+    };
 
     fetchCurrentProPackge();
-
   }, []);
 
-  const closeUnsubscribeConfirmationModalHanler = () =>{
+  const closeUnsubscribeConfirmationModalHanler = () => {
     closeUnsubcribeConfirmationModalBtn.current.click();
-  }
+  };
 
-  const unsubscribe = () =>{
+  const unsubscribe = () => {
     authFetch
-      .post(`/api/unsubscribe/${username}/`, {'username': username, 'unsubscribe': true})
-      .then((response)=>{
-        closeUnsubscribeConfirmationModalHanler();
-        enqueueSnackbar(response.data, {variant: 'success'});
-        setUserDetailsInfo({...userDetailsInfo, is_paid_member: false});
+      .post(`/api/unsubscribe/${username}/`, {
+        username: username,
+        unsubscribe: true,
       })
-  }
-  
+      .then((response) => {
+        closeUnsubscribeConfirmationModalHanler();
+        enqueueSnackbar(response.data, { variant: "success" });
+        setUserDetailsInfo({ ...userDetailsInfo, is_paid_member: false });
+      });
+  };
 
   return (
     <>
@@ -146,7 +139,13 @@ const UserProfile = () => {
         <Row className="upload-profile-pic-row">
           <Col>
             <form encType="multipart/form-data">
-            <input type="file" onChange={onProfilePicUpload} id="profile_pic" name="profile_pic" accept="image/*" />
+              <input
+                type="file"
+                onChange={onProfilePicUpload}
+                id="profile_pic"
+                name="profile_pic"
+                accept="image/*"
+              />
             </form>
           </Col>
         </Row>
@@ -173,50 +172,53 @@ const UserProfile = () => {
             <Col md={6} className="user-profile-section">
               <div className="user-profile-pic text-center">
                 <div className="profile-img text-center">
-                  {
-                    userDetailsInfo.profile_pic ? (
-                      <div className="img">
-                        <img src={`${userDetailsInfo.profile_pic.img}`} id="profilePic" />
-                        <div className="camera" id="camera">
-                          <Camera className="camera-icon icon" />
-                        </div>
+                  {userDetailsInfo.profile_pic ? (
+                    <div className="img">
+                      <img
+                        src={`${userDetailsInfo.profile_pic.img}`}
+                        id="profilePic"
+                      />
+                      <div className="camera" id="camera">
+                        <Camera className="camera-icon icon" />
                       </div>
-                    ) :
-                    (
-                      <div className="img">
-                        <img src={require("../../assets/images/user-profile.jpg")} id="profilePic" />
-                        <div className="camera" id="camera">
-                          <Camera className="camera-icon icon" />
-                        </div>
+                    </div>
+                  ) : (
+                    <div className="img">
+                      <img
+                        src={require("../../assets/images/user-profile.jpg")}
+                        id="profilePic"
+                      />
+                      <div className="camera" id="camera">
+                        <Camera className="camera-icon icon" />
                       </div>
-                    )
-                  }
-                  
+                    </div>
+                  )}
+
                   <h6>
                     {userDetailsInfo.fname} {userDetailsInfo.lname}
                   </h6>
                 </div>
 
                 <div className="mt-4">
-                  {
-                    userDetailsInfo.is_paid_member ? (
-                      <button
-                    type="button"
-                    className="btn user-profile-btn unsubscribe-btn"
-                    data-bs-toggle="modal"
-                    data-bs-target="#confirmationModal"
-                  >
-                  Unsubscribe
-                  </button>
-                    ) : (
-                      <button
-                    type="button"
-                    className="btn user-profile-btn upgrade-btn"
-                  >
-                    <Link to={`/payment/${proPackage.package_id}/`}>Upgrade</Link>
-                  </button>
-                    )
-                  }
+                  {userDetailsInfo.is_paid_member ? (
+                    <button
+                      type="button"
+                      className="btn user-profile-btn unsubscribe-btn"
+                      data-bs-toggle="modal"
+                      data-bs-target="#confirmationModal"
+                    >
+                      Unsubscribe
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      className="btn user-profile-btn upgrade-btn"
+                    >
+                      <Link to={`/payment/${proPackage.package_id}/`}>
+                        Upgrade
+                      </Link>
+                    </button>
+                  )}
                 </div>
               </div>
 
@@ -324,14 +326,18 @@ const UserProfile = () => {
                       type="button"
                       className="form-control"
                       id="membership-status"
-                      value={userDetailsInfo.is_paid_member ? 'Pro Member' : 'Free Member'}
+                      value={
+                        userDetailsInfo.is_paid_member
+                          ? "Pro Member"
+                          : "Free Member"
+                      }
                       style={{
-                        'border': 'none',
-                        'background': 'none',
-                        'color': 'black',
-                        'outline': 'none',
-                        'fontWeight': '700',
-                        'textAlign': 'left'
+                        border: "none",
+                        background: "none",
+                        color: "black",
+                        outline: "none",
+                        fontWeight: "700",
+                        textAlign: "left",
                       }}
                     />
                   </div>
@@ -344,7 +350,13 @@ const UserProfile = () => {
 
         <div className="margin-bottom"></div>
 
-        <ConfirmationModal unsubscribe={{unsubscribe, closeUnsubcribeConfirmationModalBtn, closeUnsubscribeConfirmationModalHanler}} />
+        <ConfirmationModal
+          unsubscribe={{
+            unsubscribe,
+            closeUnsubcribeConfirmationModalBtn,
+            closeUnsubscribeConfirmationModalHanler,
+          }}
+        />
         <ChangePasswordModal />
       </Container>
     </>
