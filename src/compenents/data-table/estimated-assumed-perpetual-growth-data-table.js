@@ -127,6 +127,21 @@ export default function EstimatedAssumedPerpetualGrowthDB({
 }) {
   const rows = preparePerpetualGrowthHistories(perpetualGrowthHistory);
 
+  const dateObj = new Date();
+  const timeNow =
+    "date-" +
+    dateObj.getDate() +
+    "/" +
+    (dateObj.getMonth() + 1) +
+    "/" +
+    dateObj.getFullYear() +
+    " Time-" +
+    dateObj.getHours() +
+    ":" +
+    dateObj.getMinutes() +
+    ":" +
+    dateObj.getSeconds();
+
   return (
     <React.Fragment>
       <Container>
@@ -134,7 +149,10 @@ export default function EstimatedAssumedPerpetualGrowthDB({
           <Col md={12}>
             <div className="export-btn">
               <h4>Past Results</h4>
-              <CSVLink data={rows}>
+              <CSVLink
+                data={rows}
+                filename={`estimate_perpetual_growth_${timeNow}.csv`}
+              >
                 <button type="button" className="btn mb-3">
                   Export Excel
                 </button>
