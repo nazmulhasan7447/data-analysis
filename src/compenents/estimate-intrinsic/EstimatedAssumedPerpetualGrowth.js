@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Spinner } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import "../../assets/css/estimate-intrinsic-value/index.css";
 import EstimatedAssumedPerpetualGrowthDB from "../data-table/estimated-assumed-perpetual-growth-data-table";
 import authFetch from "../../axios/Interceptors";
@@ -141,13 +141,11 @@ const EstimatedAssumedPerpetualGrowthRate = () => {
   };
 
   const symbolOnFocusoutHandler = async () => {
-    // e.preventDefault();
     await authFetch
       .post("/api/check/symbool/", symbol)
       .then((response) => {
         setDisablePerpetualGrowthForm(response?.data?.success ? false : true);
         const msg = response?.data?.success || response?.data?.failed;
-        // setsymbolFoundAlertMssg(msg);
         enqueueSnackbar(msg, {
           variant: `${response?.data?.success ? "success" : "warning"}`,
         });
@@ -288,7 +286,7 @@ const EstimatedAssumedPerpetualGrowthRate = () => {
                         <b>
                           Cost of Equity:{" "}
                           {costOfEquity
-                            ? parseFloat(costOfEquity).toFixed(3)
+                            ? parseFloat(costOfEquity).toFixed(3) + "%"
                             : ""}
                         </b>
                       </label>
@@ -358,7 +356,9 @@ const EstimatedAssumedPerpetualGrowthRate = () => {
                       >
                         <b>
                           Cost of Debt:{" "}
-                          {costOfDebt ? parseFloat(costOfDebt).toFixed(3) : ""}
+                          {costOfDebt
+                            ? parseFloat(costOfDebt).toFixed(3) + "%"
+                            : ""}
                         </b>
                       </label>
                       <span></span>

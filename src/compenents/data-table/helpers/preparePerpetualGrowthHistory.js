@@ -1,7 +1,6 @@
 import map from "lodash";
 
 const preparePerpetualGrowthHistories = (data) => {
-  console.log(data);
   const preparedData = data.map((item, index) => {
     const {
       date,
@@ -46,7 +45,6 @@ const preparePerpetualGrowthHistories = (data) => {
     };
     return updatedItem;
   });
-  console.log(preparedData);
   return preparedData;
 };
 
