@@ -2,7 +2,6 @@ import { map } from "lodash";
 
 const prepareEstimatedIntrinsicValueHistories = (data) =>
   map(data, (item, index) => {
-    console.log(item);
     const {
       date,
       time,

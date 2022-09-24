@@ -15,6 +15,8 @@ const EstimatedIntrinsicVal = () => {
   const [estimatedIntrinsicHistories, setEstimatedIntrinsicHistories] =
     useState([]);
 
+  const [userRequestLimit, setUserRequestLimit] = useState({});
+
   const initialSymbolObj = Object.freeze({ epgSymbol: "" });
   const initialIntrinsicValueInputObject = Object.freeze({
     symbol: "",
@@ -174,6 +176,22 @@ const EstimatedIntrinsicVal = () => {
     }
   };
 
+  const getNumberOfRequestSentByCurrentUser = () => {
+    try {
+      authFetch
+        .get(`/api/get/number/of/reques/by/user/${currentUserID}`)
+        .then((response) => {
+          console.log(response.data);
+          setUserRequestLimit(response?.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   useEffect(() => {
     if (estimatedIntrinsicValueInputObject?.comRP) {
       getCostOfEquity();
@@ -196,6 +214,7 @@ const EstimatedIntrinsicVal = () => {
 
   useEffect(() => {
     getEstimatedIntrinsicValueHistories();
+    getNumberOfRequestSentByCurrentUser();
   }, []);
 
   return (
@@ -490,15 +509,32 @@ const EstimatedIntrinsicVal = () => {
                       </Row>
                     </Col>
 
-                    <div class="col-6">
-                      <button
-                        type="submit"
-                        onClick={(e) => getEstimatedIntrinsicValue(e)}
-                        class="btn submit-button mt-2"
-                      >
-                        Submit
-                      </button>
-                    </div>
+                    {userRequestLimit?.user_paid_status ? (
+                      <div class="col-6">
+                        <button
+                          type="submit"
+                          onClick={(e) => getEstimatedIntrinsicValue(e)}
+                          class="btn submit-button mt-2"
+                        >
+                          Submit
+                        </button>
+                      </div>
+                    ) : (
+                      <div class="col-6">
+                        <button
+                          type="submit"
+                          onClick={(e) => getEstimatedIntrinsicValue(e)}
+                          class="btn submit-button mt-2"
+                          disabled={
+                            userRequestLimit?.no_of_request_today > 5
+                              ? true
+                              : false
+                          }
+                        >
+                          Submit
+                        </button>
+                      </div>
+                    )}
                   </form>
                 </div>
               </Col>
