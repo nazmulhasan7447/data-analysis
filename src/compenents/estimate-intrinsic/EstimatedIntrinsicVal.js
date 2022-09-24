@@ -545,7 +545,13 @@ const EstimatedIntrinsicVal = () => {
                 <div className="result-section">
                   <h3 className="text-center">Estimated Intrinsic Value</h3>
                   <h3 className="text-center text-black">
-                    ${estimatedIntrinsicValue?.intrinsic_value || 0} mil
+                    $
+                    {estimatedIntrinsicValue?.intrinsic_value
+                      ? parseFloat(
+                          estimatedIntrinsicValue?.intrinsic_value
+                        ).toLocaleString()
+                      : 0}{" "}
+                    mil
                   </h3>
                 </div>
               </Col>

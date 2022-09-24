@@ -1,6 +1,6 @@
 import map from "lodash";
 
-const preparePerpetualGrowthHistories = (data) => {
+const preparePerpetualGrowthHistoriesToDownload = (data) => {
   const preparedData = data.map((item, index) => {
     const {
       date,
@@ -45,12 +45,10 @@ const preparePerpetualGrowthHistories = (data) => {
       wacc: parseFloat(wacc).toFixed(2) + "%",
       beta: beta,
       de_ratio: parseFloat(de_ratio).toFixed(2) + "%",
-      user_id: user?.userID,
-      group: user?.userID,
     };
     return updatedItem;
   });
   return preparedData;
 };
 
-export default preparePerpetualGrowthHistories;
+export default preparePerpetualGrowthHistoriesToDownload;

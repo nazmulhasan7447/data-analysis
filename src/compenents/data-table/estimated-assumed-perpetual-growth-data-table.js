@@ -4,6 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 import { CSVLink } from "react-csv";
 import "../../assets/css/data-table/dataTable.css";
 import preparePerpetualGrowthHistories from "./helpers/preparePerpetualGrowthHistory";
+import preparePerpetualGrowthHistoriesToDownload from "./helpers/preparePerpetualGrowthRateDataForDownload";
 
 const columns = [
   {
@@ -39,7 +40,7 @@ const columns = [
   {
     field: "ev",
     headerName: "EV",
-    width: 80,
+    width: 150,
     headerClassName: "table-header-bg",
   },
   {
@@ -127,6 +128,10 @@ export default function EstimatedAssumedPerpetualGrowthDB({
 }) {
   const rows = preparePerpetualGrowthHistories(perpetualGrowthHistory);
 
+  const dataToDownload = preparePerpetualGrowthHistoriesToDownload(
+    perpetualGrowthHistory
+  );
+
   const dateObj = new Date();
   const timeNow =
     "date-" +
@@ -150,7 +155,7 @@ export default function EstimatedAssumedPerpetualGrowthDB({
             <div className="export-btn">
               <h4>Past Results</h4>
               <CSVLink
-                data={rows}
+                data={dataToDownload}
                 filename={`estimate_perpetual_growth_${timeNow}.csv`}
               >
                 <button type="button" className="btn mb-3">

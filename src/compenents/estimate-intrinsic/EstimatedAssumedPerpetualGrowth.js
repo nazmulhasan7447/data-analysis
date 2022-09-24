@@ -313,11 +313,7 @@ const EstimatedAssumedPerpetualGrowthRate = () => {
                         disabled={disablePerpetualGrowthForm}
                       >
                         <option selected>Select Option</option>
-                        <option value="AAA">
-                          <div className="col-5">AAA</div>
-                          <div className="col-2"></div>
-                          <div className="col-5 text-right">AAA</div>
-                        </option>
+                        <option value="AAA">AAA</option>
                         <option value="AA">AA+, AA, AA-</option>
                         <option value="A">A+, A, A-</option>
                         <option value="BBB">BBB+, BBB, BBB-</option>

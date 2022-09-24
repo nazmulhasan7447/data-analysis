@@ -1,6 +1,7 @@
 import * as React from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { Container, Row, Col } from "react-bootstrap";
+import { CSVLink } from "react-csv";
 import "../../assets/css/data-table/dataTable.css";
 import prepareEstimatedIntrinsicValueHistories from "./helpers/prepareEstimatedIntrinsicValue";
 
@@ -159,9 +160,14 @@ export default function EstimatedIntrinsicDB({ estimatedIntrinsicHistories }) {
           <Col md={12}>
             <div className="export-btn">
               <h4>Past Results</h4>
-              <button type="button" className="btn mb-3">
-                Export Excel
-              </button>
+              <CSVLink
+                data={rows}
+                filename={`estimate_intrinsic_value_${timeNow}.csv`}
+              >
+                <button type="button" className="btn mb-3">
+                  Export Excel
+                </button>
+              </CSVLink>
             </div>
           </Col>
         </Row>
