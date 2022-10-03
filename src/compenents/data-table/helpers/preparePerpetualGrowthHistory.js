@@ -45,8 +45,8 @@ const preparePerpetualGrowthHistories = (data) => {
       wacc: parseFloat(wacc).toFixed(2) + "%",
       beta: beta,
       de_ratio: parseFloat(de_ratio).toFixed(2) + "%",
-      user_id: user?.userID,
-      group: user?.userID,
+      // user_id: user?.userID,
+      // group: user?.userID,
     };
     return updatedItem;
   });

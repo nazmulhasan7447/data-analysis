@@ -109,18 +109,18 @@ const columns = [
     width: 130,
     headerClassName: "table-header-bg",
   },
-  {
-    field: "user_id",
-    headerName: "User ID",
-    width: 130,
-    headerClassName: "table-header-bg",
-  },
-  {
-    field: "group",
-    headerName: "Group",
-    width: 130,
-    headerClassName: "table-header-bg",
-  },
+  // {
+  //   field: "user_id",
+  //   headerName: "User ID",
+  //   width: 130,
+  //   headerClassName: "table-header-bg",
+  // },
+  // {
+  //   field: "group",
+  //   headerName: "Group",
+  //   width: 130,
+  //   headerClassName: "table-header-bg",
+  // },
 ];
 
 export default function EstimatedAssumedPerpetualGrowthDB({

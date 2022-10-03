@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import { Camera, User } from "react-feather";
+import React, { useState, useRef } from "react";
+import { Camera } from "react-feather";
 import { Container, Row, Col } from "react-bootstrap";
 import "../../assets/css/user-profile/user-profile.css";
 import ChangePasswordModal from "./ModalChangePassword";

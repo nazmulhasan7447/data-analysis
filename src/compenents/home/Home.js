@@ -6,10 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../auth/Authentication";
 import authFetch from "../../axios/Interceptors";
 import PreLoader from "../pre-loader/PreLoader";
-import '../../assets/css/home-for-unregistered/home.css';
-
-
-
+import "../../assets/css/home-for-unregistered/home.css";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -27,7 +24,7 @@ const HomePage = () => {
       await authFetch
         .get("/api/package-list/")
         .then((response) => {
-          console.log(response)
+          console.log(response);
           const freePackage = response.data.filter(
             (item) => item.package_type === "free"
           );
@@ -40,7 +37,7 @@ const HomePage = () => {
     }
     fetchPackageList();
 
-    if (isUserLoggedIn)  {
+    if (isUserLoggedIn) {
       navigate("/home", { replace: true });
     }
   }, []);
@@ -52,9 +49,9 @@ const HomePage = () => {
           <Row>
             <Col>
               <div className="pricing-table-root-title">
-                <h2 className="text-center">
+                {/* <h2 className="text-center">
                   This is Home Page for <b>unregistered</b> users
-                </h2>
+                </h2> */}
               </div>
             </Col>
           </Row>
@@ -78,11 +75,6 @@ const HomePage = () => {
                               <p className="text-center">{pack.sub_title}</p>
                             </div>
                             <div className="divider"></div>
-                            {/* <div className="pricing-amount">
-                            <h5 className="text-center">
-                            ${pack.price}/<small>{pack.willBeCharged}</small>
-                            </h5>
-                          </div> */}
                           </div>
                           <div className="card-body">
                             <div className="card-items">
@@ -111,11 +103,21 @@ const HomePage = () => {
                         </div>
                       </div>
 
-                      <div style={{width: '100%', position: 'relative', marginTop: '20px', marginBottom: '20px'}}>
+                      <div
+                        style={{
+                          width: "100%",
+                          position: "relative",
+                          marginTop: "20px",
+                          marginBottom: "20px",
+                        }}
+                      >
                         <Link to="/login">
-                        <button className="ur-home-login-btn btn-primary" style={{width: '100%'}}>
-                          Login
-                        </button>
+                          <button
+                            className="ur-home-login-btn btn-primary"
+                            style={{ width: "100%" }}
+                          >
+                            Login
+                          </button>
                         </Link>
                       </div>
                     </Col>

@@ -66,7 +66,11 @@ const HomePgForLoggedInUser = () => {
 
   return (
     <Container>
-      <Row className={`home-page-loggedin-user ${currentUserDetail.is_paid_member && "position-center "}`}>
+      <Row
+        className={`home-page-loggedin-user ${
+          currentUserDetail.is_paid_member && "position-center "
+        }`}
+      >
         <Col md={2}></Col>
         <Col md={3}>
           <div className="card">
@@ -94,58 +98,60 @@ const HomePgForLoggedInUser = () => {
         <Col md={2}></Col>
       </Row>
 
-      {!currentUserDetail?.is_paid_member && (
-        loading ? <PreLoader />
-        : (
+      {!currentUserDetail?.is_paid_member &&
+        (loading ? (
+          <PreLoader />
+        ) : (
           <Row className="pro-package pricing-list">
-          {packageList &&
-            packageList.map((pack, index) => {
-              return (
-                <>
-                  <Col md={4}></Col>
-                  <Col md={4}>
-                    <div className="pricing-card pricing-card-not-active">
-                      <div className="card" style={{ width: "100%" }}>
-                        <div className="prcing-card-header">
-                          <div className="pricing-title">
-                            <h4 className="card-title text-center">
-                              {pack.name}
-                            </h4>
-                            <p className="text-center">{pack.sub_title}</p>
+            {packageList &&
+              packageList.map((pack, index) => {
+                return (
+                  <>
+                    <Col md={4}></Col>
+                    <Col md={4}>
+                      <div className="pricing-card pricing-card-not-active">
+                        <div className="card" style={{ width: "100%" }}>
+                          <div className="prcing-card-header">
+                            <div className="pricing-title">
+                              <h4 className="card-title text-center">
+                                {pack.name}
+                              </h4>
+                              <p className="text-center">{pack.sub_title}</p>
+                            </div>
+                            <div className="divider"></div>
+                            <div className="pricing-amount">
+                              <h5 className="text-center">
+                                ${pack.price}/
+                                <small>{pack.willBeCharged}</small>
+                              </h5>
+                            </div>
                           </div>
-                          <div className="divider"></div>
-                          <div className="pricing-amount">
-                            <h5 className="text-center">
-                              ${pack.price}/<small>{pack.willBeCharged}</small>
-                            </h5>
+                          <div className="card-body">
+                            <div className="card-items">
+                              {pack.items &&
+                                pack.items.map((item, index) => {
+                                  return (
+                                    <div className="item">
+                                      <h6 className="text-center">
+                                        <Icon.CheckSquare className="package-check" />
+                                        <span>{item.item_description}</span>
+                                      </h6>
+                                    </div>
+                                  );
+                                })}
+                            </div>
                           </div>
-                        </div>
-                        <div className="card-body">
-                          <div className="card-items">
-                            {pack.items &&
-                              pack.items.map((item, index) => {
-                                return (
-                                  <div className="item">
-                                    <h6 className="text-center">
-                                      <Icon.CheckSquare className="package-check" />
-                                      <span>{item.item_description}</span>
-                                    </h6>
-                                  </div>
-                                );
-                              })}
-                          </div>
-                        </div>
 
-                        <div className="card-body text-center">
-                          <button
-                            className="btn-primary pro-package-buy-btn"
-                            onClick={() =>
-                              redirectToPaymentPage(pack.package_id)
-                            }
-                          >
-                            Upgrade now
-                          </button>
-                          {
+                          <div className="card-body text-center">
+                            <button
+                              className="btn-primary pro-package-buy-btn"
+                              onClick={() =>
+                                redirectToPaymentPage(pack.package_id)
+                              }
+                            >
+                              Upgrade now
+                            </button>
+                            {/* {
                             currentUserDetail?.is_free_trial_used || (
                               <button 
                             className="btn-primary mt-3 pro-package-buy-btn seven_day_free_trial_confirmationModal"
@@ -155,20 +161,20 @@ const HomePgForLoggedInUser = () => {
                             7-DAY FREE TRIAL
                           </button>
                             )
-                          }
+                          } */}
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </Col>
-                  <Col md={4}></Col>
-                </>
-              );
-            })}
-        </Row>
-        )
-      )
-    }
-    <SevenDayFreeTrialConfirmationModal currentUserDetails={currentUserDetail} />
+                    </Col>
+                    <Col md={4}></Col>
+                  </>
+                );
+              })}
+          </Row>
+        ))}
+      <SevenDayFreeTrialConfirmationModal
+        currentUserDetails={currentUserDetail}
+      />
     </Container>
   );
 };
